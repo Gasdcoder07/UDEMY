@@ -223,12 +223,7 @@ class LinkedList {
 }
 
 let myLinkedList = new LinkedList(1);
-
-myLinkedList.push(1);
-myLinkedList.push(0);
-myLinkedList.push(0);
-myLinkedList.push(1);
-myLinkedList.push(1);
+myLinkedList.push(1)
 
 //myLinkedList.show();
 
