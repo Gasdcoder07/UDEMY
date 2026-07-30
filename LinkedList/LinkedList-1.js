@@ -208,29 +208,37 @@ class LinkedList {
       current = current.next;
     }
   }
+
+  binaryToDecimal() {
+    let curr = this.head;
+    let sum = 0;
+    while(curr != null) {
+      sum *= 2;
+      sum += curr.value
+      curr = curr.next;
+    }
+    return sum
+  }
+
 }
 
-let myLinkedList = new LinkedList(4);
+let myLinkedList = new LinkedList(1);
 
-myLinkedList.push(5);
 myLinkedList.push(1);
-myLinkedList.push(5);
-myLinkedList.push(4);
+myLinkedList.push(0);
+myLinkedList.push(0);
+myLinkedList.push(1);
 myLinkedList.push(1);
 
 //myLinkedList.show();
 
 //console.log("Mi index 10: ", myLinkedList.get(10));
 //console.log("Mi index 2: ", myLinkedList.get(2));
-myLinkedList.set(2, 67);
 //myLinkedList.show();
 //myLinkedList.reverse().show();
 //myLinkedList.push(1);
 //myLinkedList.show();
 
 myLinkedList.show();
-
-myLinkedList.removeDuplicates();
-
-myLinkedList.show();
+console.log(myLinkedList.binaryToDecimal())
 
