@@ -220,10 +220,42 @@ class LinkedList {
     return sum
   }
 
+  partitionList(x) {
+
+    if (!this.head) return
+
+    let dummy1 = new Node(0)
+    let dummy2 = new Node(0)
+
+    let temp1 = dummy1
+    let temp2 = dummy2
+
+    let curr = this.head;
+
+    while(curr !== null) {
+      if (curr.value < x) {
+        temp1.next = curr
+        temp1 = temp1.next
+      } else {
+        temp2.next = curr
+        temp2 = temp2.next
+      }
+      curr = curr.next
+    }
+
+    this.head = dummy1.next
+    temp1.next = dummy2.next
+    temp2.next = null
+
+  }
+
 }
 
-let myLinkedList = new LinkedList(1);
+let myLinkedList = new LinkedList(4);
+myLinkedList.push(3)
+myLinkedList.push(2)
 myLinkedList.push(1)
+myLinkedList.push(90)
 
 //myLinkedList.show();
 
@@ -235,5 +267,9 @@ myLinkedList.push(1)
 //myLinkedList.show();
 
 myLinkedList.show();
-console.log(myLinkedList.binaryToDecimal())
+
+myLinkedList.partitionList(3)
+
+myLinkedList.show()
+
 
