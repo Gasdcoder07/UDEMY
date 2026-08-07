@@ -50,9 +50,11 @@ class LinkedList {
 
   show() {
     let curr = this.head;
+    let count = 0;
     console.log("\nInicia\n");
     while (curr != null) {
-      console.log(curr.value);
+      console.log(count, ": ", curr.value);
+      count++;
       curr = curr.next;
     }
     console.log("\nTermina\n");
@@ -160,7 +162,7 @@ class LinkedList {
     let slow = this.head;
     let fast = this.head;
 
-    while (fast != null && fast.null != null) {
+    while (fast != null && fast.next != null) {
       slow = slow.next;
       fast = fast.next.next;
 
@@ -249,6 +251,30 @@ class LinkedList {
 
   }
 
+  reverseBetween(left, right) {
+    let dummy = new Node(0)
+    dummy.next = this.head;
+    let tomove = null;
+
+    let prev = dummy
+
+    for (let i = 0; i < left; i++) prev = prev.next
+
+    let curr = prev.next
+
+    for (let j = 0; j < right-left; j++) {
+      tomove = curr.next;
+
+      curr.next = tomove.next;
+      tomove.next = prev.next;
+      prev.next = tomove
+    }
+
+    this.head = dummy.next;
+    dummy.next = null
+    this.tail
+  }
+
 }
 
 let myLinkedList = new LinkedList(4);
@@ -272,4 +298,7 @@ myLinkedList.partitionList(3)
 
 myLinkedList.show()
 
+myLinkedList.reverseBetween(1,4)
+
+myLinkedList.show()
 
